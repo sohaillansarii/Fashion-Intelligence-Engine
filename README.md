@@ -2,7 +2,7 @@
 
 A multimodal fashion product search engine built with CLIP, FAISS, FastAPI, and Streamlit.
 
-## Live Demo
+## Live
 - API: https://fashion-intelligence-engine.up.railway.app/docs
 - UI: https://fashion-intelligence-engine.streamlit.app
 
