@@ -27,7 +27,11 @@ A multimodal fashion search engine that lets users search naturally ("red floral
 
 **Hyperparameter optimization:** This produced a genuine, validated improvement — K-Fold accuracy rose from 0.951 (pretrained baseline) to 0.960–0.963 — and was adopted as the production model.
 
-**Evaluation:** Validated the final model using stratified K-Fold cross-validation, Top-1/Top-5 accuracy (0.950 / 0.995 on mixed-category samples)
+**Evaluation:** Validated the final model using:
+
+- **Stratified K-Fold Cross-Validation** — ensures balanced representation across product categories during testing
+- **Top-1 Accuracy: `0.950`** — correct match ranked as the single best result
+- **Top-5 Accuracy: `0.995`** — correct match found within the top 5 results (mixed-category samples)
 
 **Query understanding & explainability:** Built a rule-based parser to extract filters (price, color, category, gender) from natural-language queries, paired with an explainability module.
 
@@ -37,13 +41,13 @@ A multimodal fashion search engine that lets users search naturally ("red floral
 
 ## Limitations
 
-**Synthetic pricing:** The dataset lacks real pricing data; prices were generated using category-informed ranges purely to demonstrate filtering functionality.
+- Synthetic pricing: The dataset lacks real pricing data; prices were generated using category-informed ranges purely to demonstrate filtering functionality.
 
 - Contrastive fine-tuning of CLIP was tested on a 5,000-image subset, but it was computationally expensive (1 epoch took ~30 minutes, while effective training would require at least 10–20 epochs on the full 44K-image dataset). Therefore, the final model uses a pretrained CLIP backbone with Optuna hyperparameter tuning (using K-fold cross-validation), offering a practical balance between performance, training time, and computational cost.
 
-**Rule-based parsing (chosen):** Fast, free, and deterministic — though limited to phrasing patterns it explicitly recognizes.
+- Rule-based parsing (chosen): Fast, free, and deterministic — though limited to phrasing patterns it explicitly recognizes.
 
-**LLM-based parsing (alternative):** Handles ambiguous, natural phrasing more robustly — at the cost of latency, per-query expense, and less predictable output.
+- LLM-based parsing (alternative): Handles ambiguous, natural phrasing more robustly — at the cost of latency, per-query expense, and less predictable output.
 
 ## Embedding Visualization
 
