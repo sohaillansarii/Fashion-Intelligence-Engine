@@ -53,4 +53,16 @@ A multimodal fashion search engine that lets users search naturally ("red floral
 
 ## Tech Stack
 
-Python, CLIP, PyTorch, FAISS, Optuna, scikit-learn, FastAPI, Streamlit, Hugging Face Hub, Railway, Matplotlib, Pandas, NumPy
+- Python
+- CLIP
+- PyTorch
+- FAISS
+- Optuna
+- scikit-learn
+- FastAPI
+- Streamlit
+- Hugging Face Hub
+- Railway
+- Matplotlib
+- Pandas
+- NumPy
