@@ -25,19 +25,21 @@ A multimodal fashion search engine that lets users search naturally ("red floral
 
 **Embedding generation:** Used pretrained CLIP (ViT-B/32) to generate 512-dimensional embeddings for all product images, indexed with FAISS (IndexFlatIP) for fast cosine-similarity search.
 
-**Hyperparameter optimization:** This produced a genuine, validated improvement — K-Fold accuracy rose from 0.951 (pretrained baseline) to 0.960–0.963 — and was adopted as the production model.
+**Hyperparameter optimization:** This produced a genuine, validated improvement — K-Fold accuracy rose from 0.941 (pretrained baseline) to 0.960–0.963 — and was adopted as the production model.
 
 **Evaluation:** Validated the final model using:
 
 - **Stratified K-Fold Cross-Validation** — ensures balanced representation across product categories during testing
-- **Top-1 Accuracy: `0.950`** — correct match ranked as the single best result
-- **Top-5 Accuracy: `0.995`** — correct match found within the top 5 results (mixed-category samples)
+- **Top-1 Accuracy: `0.949`** — correct match ranked as the single best result
+- **Top-5 Accuracy: `0.999`** — correct match found within the top 5 results (mixed-category samples)
 
 **Query understanding & explainability:** Built a rule-based parser to extract filters (price, color, category, gender) from natural-language queries, paired with an explainability module.
 
 **Multimodal refinement:** Implemented image + text fusion (weighted embedding blend) to support "more like this, but in blue"-style refinement search.
 
 **Deployment:** Packaged the system as a FastAPI backend (deployed on Railway) with model and embeddings hosted on Hugging Face Hub, paired with a Streamlit frontend for an end-to-end usable demo.
+
+**Category-wise Accuracy** Accuracy varied significantly by category — highest for T-shirts (0.94), likely due to their visually distinctive designs, colors, and patterns. Lowest for Sunglasses (0.44), likely because most sunglasses look visually similar (dark lenses, black frames) and are often described with generic, overlapping captions — making them harder for the model to tell apart using image-text matching alone
 
 ## Limitations
 
